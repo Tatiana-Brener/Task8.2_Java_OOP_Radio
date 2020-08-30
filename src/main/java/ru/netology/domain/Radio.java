@@ -49,31 +49,24 @@ public class Radio {
     }
 
     public void changeNextRadioStation() {
-        if (currentRadioStation < lastRadioStation)
-            currentRadioStation++;
-
         if (currentRadioStation == lastRadioStation)
-        this.currentRadioStation = firstRadioStation;
-
+            this.currentRadioStation = firstRadioStation;
+        else currentRadioStation++;
     }
 
     public void changePrevRadioStation() {
-        if (currentRadioStation > firstRadioStation)
-            currentRadioStation--;
-
         if (currentRadioStation == firstRadioStation)
-        this.currentRadioStation = lastRadioStation;
+            this.currentRadioStation = lastRadioStation;
+        else currentRadioStation--;
     }
 
     public void increaseCurrentSoundVolume() {
         if (currentSoundVolume < maxSoundVolume)
             currentSoundVolume++;
-        this.currentSoundVolume = currentSoundVolume;
     }
 
     public void decreaseCurrentSoundVolume() {
         if (currentSoundVolume > minSoundVolume)
             currentSoundVolume--;
-        this.currentSoundVolume = currentSoundVolume;
     }
 }

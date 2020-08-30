@@ -62,25 +62,25 @@ class RadioTest {
     }
 
     @Test
-    public void shouldChangeNextRadioStationLast() {
+    public void shouldChangeNextRadioStationPreLast() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(9);
-        assertEquals(9, radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(8);
+        assertEquals(8, radio.getCurrentRadioStation());
 
         radio.changeNextRadioStation();
-        assertEquals(0, radio.getCurrentRadioStation());
+        assertEquals(9, radio.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldChangeNextRadioStation() {
+    public void shouldChangeNextRadioStationBetweenLastFirst() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(6);
-        assertEquals(6, radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(5);
+        assertEquals(5, radio.getCurrentRadioStation());
 
         radio.changeNextRadioStation();
-        assertEquals(7, radio.getCurrentRadioStation());
+        assertEquals(6, radio.getCurrentRadioStation());
     }
 
     @Test
@@ -95,18 +95,29 @@ class RadioTest {
     }
 
     @Test
-    public void shouldChangePrevRadioStationFirst() {
+    public void shouldChangeNextRadioStationlast() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadioStation(0);
-        assertEquals(0, radio.getCurrentRadioStation());
-
-        radio.changePrevRadioStation();
+        radio.setCurrentRadioStation(9);
         assertEquals(9, radio.getCurrentRadioStation());
+
+        radio.changeNextRadioStation();
+        assertEquals(0, radio.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldChangePrevRadioStation() {
+    public void shouldChangePrevRadioStationUnderFirst() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(1);
+        assertEquals(1, radio.getCurrentRadioStation());
+
+        radio.changePrevRadioStation();
+        assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangePrevRadioStationBetweenLastFirst() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(5);
@@ -125,6 +136,17 @@ class RadioTest {
 
         radio.changePrevRadioStation();
         assertEquals(8, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangePrevRadioStationFirst() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(0);
+        assertEquals(0, radio.getCurrentRadioStation());
+
+        radio.changePrevRadioStation();
+        assertEquals(9, radio.getCurrentRadioStation());
     }
 
     @Test
