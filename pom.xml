@@ -41,6 +41,14 @@
                     </execution>
 
                     <execution>
+                        <id>report-HomeWork8.1</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
                         <id>check-HomeWork8.1</id>
                         <phase>verify</phase>
                         <goals>
@@ -62,13 +70,6 @@
                         </configuration>
                     </execution>
 
-                    <execution>
-                        <id>report-HomeWork8.1</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
                 </executions>
             </plugin>
 
