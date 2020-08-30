@@ -48,13 +48,20 @@ public class Radio {
         return maxSoundVolume;
     }
 
-    public void changeNextRadioStationAfterLast() {
-        lastRadioStation++;
+    public void changeNextRadioStation() {
+        if (currentRadioStation < lastRadioStation)
+            currentRadioStation++;
+
+        if (currentRadioStation == lastRadioStation)
         this.currentRadioStation = firstRadioStation;
+
     }
 
-    public void changePrevRadioStationUnderFirst() {
-        firstRadioStation--;
+    public void changePrevRadioStation() {
+        if (currentRadioStation > firstRadioStation)
+            currentRadioStation--;
+
+        if (currentRadioStation == firstRadioStation)
         this.currentRadioStation = lastRadioStation;
     }
 

@@ -62,25 +62,69 @@ class RadioTest {
     }
 
     @Test
-    public void shouldChangeNextRadioStationAfterLast() {
+    public void shouldChangeNextRadioStationLast() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(9);
         assertEquals(9, radio.getCurrentRadioStation());
 
-        radio.changeNextRadioStationAfterLast();
+        radio.changeNextRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldChangePrevRadioStationUnderFirst() {
+    public void shouldChangeNextRadioStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(6);
+        assertEquals(6, radio.getCurrentRadioStation());
+
+        radio.changeNextRadioStation();
+        assertEquals(7, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangeNextRadioStationFirst() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(0);
         assertEquals(0, radio.getCurrentRadioStation());
 
-        radio.changePrevRadioStationUnderFirst();
+        radio.changeNextRadioStation();
+        assertEquals(1, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangePrevRadioStationFirst() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(0);
+        assertEquals(0, radio.getCurrentRadioStation());
+
+        radio.changePrevRadioStation();
         assertEquals(9, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangePrevRadioStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(5);
+        assertEquals(5, radio.getCurrentRadioStation());
+
+        radio.changePrevRadioStation();
+        assertEquals(4, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldChangePrevRadioStationLast() {
+        Radio radio = new Radio();
+
+        radio.setCurrentRadioStation(9);
+        assertEquals(9, radio.getCurrentRadioStation());
+
+        radio.changePrevRadioStation();
+        assertEquals(8, radio.getCurrentRadioStation());
     }
 
     @Test
